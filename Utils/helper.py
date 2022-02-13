@@ -36,7 +36,7 @@ def preprocessMessage(message):
         bits = fillZeros(bits, 448, 'LE')
         bits = bits + message_len
         return [bits]
-    elif length == 448:
+    elif 448 <= length <= 512:
         bits.append(1)
         bits = fillZeros(bits, 1024, 'LE')
         bits[-64:] = message_len

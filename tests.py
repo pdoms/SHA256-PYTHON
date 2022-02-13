@@ -21,11 +21,13 @@ test_vector_2 = "abc"
 test_vector_3 = "abcdbcdecdefdefgefghfghighijhijkijkljklmklmnlmnomnopnopq"
 test_vector_4 = "abcdefghbcdefghicdefghijdefghijkefghijklfghijklmghijklmnhijklmnoijklmnopjklmnopqklmnopqrlmnopqrsmnopqrstnopqrstu"
 test_vector_5 = "a" * 1000000
+test_vector_6 = "abcdbcdecdefdefgefghfghighijhijkijkljklmklmnlmnomnopnopqp" #edge-case: between 448 and 512 bits long message (456)
 sha_1 = "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
 sha_2 = 'ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad'
 sha_3 = "248d6a61d20638b8e5c026930c3e6039a33ce45964ff2167f6ecedd419db06c1"
 sha_4 = "cf5b16a778af8380036ce59e7b0492370b249b11e8f07a51afac45037afee9d1"
 sha_5 = "cdc76e5c9914fb9281a1c7e284d73e67f1809a48a497200e046d39ccc7112cd0"
+sha_6 = "3234a5b08b1112a6cb90bf9920ca1863535c9380a65633e5442befda64f84a6f" #hashlib result
 
 
 
@@ -161,11 +163,13 @@ class TESTS(unittest.TestCase):
         r_3 = sha256(test_vector_3)
         r_4 = sha256(test_vector_4)
         #r_5 = sha256(test_vector_5)
+        r_6 = sha256(test_vector_6)
         self.assertEqual(r_1, sha_1)
         self.assertEqual(r_2, sha_2)
         self.assertEqual(r_3, sha_3)
         self.assertEqual(r_4, sha_4)
         #self.assertEqual(r_5, sha_5)
+        self.assertEqual(r_6, sha_6)
 
 
 
@@ -175,4 +179,3 @@ if __name__ == '__main__':
 
 
 
-#helpter
