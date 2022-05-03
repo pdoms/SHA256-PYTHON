@@ -43,10 +43,10 @@ def preprocessMessage(message):
         return chunker(bits, 512)
     else:
         bits.append(1)
-        while len(bits) % 512 != 0:
+        while (len(bits)+64) % 512 != 0:
             bits.append(0)
-        bits[-64:] = message_len
-    return chunker(bits, 512)
+        bits = bits + message_len
+        return chunker(bits, 512)
 
 
 def initializer(values):

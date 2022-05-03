@@ -57,4 +57,4 @@ if __name__ == '__main__':
         input_message = input('Type or copy your message here: ')
         print('Your message: ', input_message)
         print('Hash: ', sha256(input_message))
-        verdict = input('Do you want to try another text? (y/n): ').lower()
+        verdict = input('Do you want to tryte another text? (y/n): ').lower()
